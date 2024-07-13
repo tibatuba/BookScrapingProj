@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Prices</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Book Prices 📚</h1>
+        <form method="get" action="/">
+            <input type="text" name="search" placeholder="Search by title" value="{{ search_query }}">
+            <select name="genre">
+                <option value="">Select Genre</option>
+                {% for g in genres %}
+                    <option value="{{ g }}" {% if genre == g %}selected{% endif %}>{{ g }}</option>
+                {% endfor %}
+            </select>
+            <select name="sort">
+                <option value="Title" {% if sort_by == 'Title' %}selected{% endif %}>Sort by Title</option>
+                <option value="Price" {% if sort_by == 'Price' %}selected{% endif %}>Sort by Price</option>
+                <option value="Rating" {% if sort_by == 'Rating' %}selected{% endif %}>Sort by Rating</option>
+            </select>
+            <select name="order">
+                <option value="asc" {% if sort_order == 'asc' %}selected{% endif %}>Ascending</option>
+                <option value="desc" {% if sort_order == 'desc' %}selected{% endif %}>Descending</option>
+            </select>
+            <button type="submit">Apply</button>
+        </form>
+        <div id="chart">{{ graph|safe }}</div>
+    </div>
+</body>
+</html>
