@@ -2,7 +2,7 @@
 
 # With CSS, HTML, BeautifulSoup, and Python I was able to display the data that was scraped from bookstoscrape.com in a meaningful way using graphs and filters while simultaneously making it aesthetic
 
-This project was built along with a Youtube video displaying how to do web scraping. This project demonstrates the use of the following:
+This project was built to highlight the skill of web scraping. This project demonstrates the use of the following:
 
 * CSS and the various aesthetics and formatting it adds to a websites look
 * HTML and its part in enabling the display of the data on the webpage
